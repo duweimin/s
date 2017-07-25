@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开关灯案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            outline: none; /*去除鼠标操作时候的表单元素外面的浏览器默认给加的光圈*/
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            color: #555;
+
+        }
+
+        .lampBtn {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 100px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #999;
+            background: -webkit-linear-gradient(top left, #1b66c7, #2b7dd1, #1abc9c, #1abc9c);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="background-color: white;">
+<input type="button" value="关灯" class="lampBtn" id="lampBox">
+<script>
+    /*
+     * 1.首先分析需求，把具体的需要做事情分析透彻：
+     * 2.然后把需要操作的元素依次获取到：
+     * 3.按着之前分析的步骤一步一步去实现即可：
+     * */
+
+
+    var oBody = document.body;//->window.document.body :获取HTML页面中的BODY（window可以省略）
+    var lampBox = document.getElementById('lampBox');//->在当前页 中，通过元素的ID获取到这个元素
+    lampBox.onclick = function () {//给当前元素绑定事件，当点击当前元素的时候执行 function，把需要处理的事情当在函数中即可=> domo级事情绑定
+        //   获取body 的背景颜色
+        // 元素 .style来获取元素的样式值，只能获取写在元素行内样式上的样式属性，不写或者写在样式表中的样式值获取不到
+        var bgColor = oBody.style.backgroundColor;
+        if (bgColor === 'white') {
+            oBody.style.backgroundColor = 'black';
+//            lampBox.value='开灯'//设置input表单元素的value值  》》》》方法1
+            this.value = '开灯';//this->lampBox
+        } else {
+            oBody.style.backgroundColor = 'white';
+            lampBox.value = '关灯'
+        }
+    };
+    //
+//       oBody.style.backgroundColor = bgColor === 'whine' ? 'black' : 'whine';
+    //    lampBox.onmousemove =function () {
+    //
+    //    }
+
+//  1.  实现红-蓝-绿-黑-白-黄-红 的颜色切换（if 、else 和switch case 各实现一遍）
+    //2. 如果中间加载一个颜色‘粉色pink’，能否实现切换呢？如果不能分析原因？
+    //3.以下代码用bgColor 代替原有的oBody.style.backgroundColor 不能实现需要，为什么？
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七彩灯</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            outline: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            color: #555;
+        }
+        .lampBtn{
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 100px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #999999;
+            background: -webkit-linear-gradient(top left, #1b66c7, #2b7dd1, #1abc9c, #1abc9c);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="background-color: white">
+<input type="button" value="关灯" class="lampBtn" id="lampBox">
+<script>
+    var oBody = document.body;
+    var lampBox = document.getElementById('lampBox');
+    lampBox.onclick =function(){
+        var bgColor = oBody.style.backgroundColor;
+        if (bgColor==='white'){
+            oBody.style.backgroundColor='red';
+            this.value='开灯'
+        }else if (bgColor==='red'){
+         oBody.style.backgroundColor='blue';
+        }else if (bgColor==='blue'){
+            oBody.style.backgroundColor='green';
+        }else if (bgColor==='green'){
+            oBody.style.backgroundColor='black';
+        }else if (bgColor==='black'){
+            oBody.style.backgroundColor='whitesmoke';
+        }else if (bgColor==="whitesmoke"){
+            oBody.style.backgroundColor='yellow';
+        }else if (bgColor==='yellow'){
+            oBody.style.backgroundColor='red';
+            this.value='关灯'
+        }
+    };
+</script>
+</body>
+</html>
